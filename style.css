@@ -1,0 +1,55 @@
+.navbar{
+    width: 100%;
+    height: 80px;
+    background-color: white;
+    display: flex;
+
+}
+.logo{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: black;
+    background-image: url("Navbarlogo.png");
+    background-size: cover;
+    margin-left: 15px;
+}
+.comname{
+    width: 100px;
+    height: 80px;
+    color: black
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    font-size: 55px;
+    font-family: 'Bodoni Moda', serif;
+}
+.info{
+    width: 700px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color:white;
+    margin-left: 600px;
+    margin-top: 25px;
+}
+/* Default styles */
+.navbardet {
+    width: auto;
+    height: 50px;
+    background-color: white;
+    font-size: 20px;
+    text-align: center;
+    font-family: cursive, 'Lucida Handwriting', 'Brush Script MT', 'Segoe Script', cursive;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    line-height: 50px; /* Centering text vertically */
+    border-radius:17%;
+}
+
+/* Hover styles */
+.navbardet:hover {
+    background-color: rgb(86, 27, 169); /* Change background color on hover */
+    color: white; /* Change text color on hover */
+    transform: scale(0.80); /* Slight zoom-out effect on hover */
+}
