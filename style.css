@@ -40,18 +40,17 @@
     width: auto;
     height: 50px;
     background-color: white;
-    font-size: 20px;
+    font-size: 1.4rem;
+    font-weight: 500;
     text-align: center;
-    font-family: cursive, 'Lucida Handwriting', 'Brush Script MT', 'Segoe Script', cursive;
     transition: background-color 0.3s, color 0.3s, transform 0.5s;
     line-height: 50px; /* Centering text vertically */
     border-radius:17%;
 }
 
 /* Hover styles */
-.navbardet:hover {
-    background-color: rgb(86, 27, 169); /* Change background color on hover */
-    color: white; /* Change text color on hover */
+.navbardet:hover { /* Change background color on hover */
+    color:#6739b7; /* Change text color on hover */
     transform: scale(1.20); /* Slight zoom-out effect on hover */
 }
 .hero{
@@ -151,4 +150,14 @@
     background-size: cover;
     padding-left: 40px;
 
+}
+.givingdata{
+    margin-top: 80px;
+    width: 100%;
+    height: 600px;
+    padding-left: 50px;
+    padding-top: 50px;
+    font-size: 1.1rem;
+    font-weight: 400;
+    background:linear-gradient(#fff,#9c8fe4);
 }
