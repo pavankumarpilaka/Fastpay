@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Toggle Divs</title>
+    <style>
+        /* Add your CSS styles */
+        .toggle-div {
+            display: none;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="navigate('prev')">&lt; Previous</button>
+    <button onclick="navigate('next')">Next &gt;</button>
+
+    <div class="toggle-div">Content 1</div>
+    <div class="toggle-div" style="display: none;">Content 2</div>
+    <div class="toggle-div" style="display: none;">Content 3</div>
+    <!-- Add more divs as needed -->
+
+    <script>
+        let currentIndex = 0;
+        const divs = document.querySelectorAll('.toggle-div');
+
+        function navigate(direction) {
+            divs[currentIndex].style.display = 'none';
+            if (direction === 'next') {
+                currentIndex = (currentIndex + 1) % divs.length;
+            } else if (direction === 'prev') {
+                currentIndex = (currentIndex - 1 + divs.length) % divs.length;
+            }
+            divs[currentIndex].style.display = 'block';
+        }
+    </script>
+</body>
+</html>

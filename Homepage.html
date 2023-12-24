@@ -24,6 +24,59 @@
                <div class="navbardet">Login/Register</div>
           </div>
     </div>
-    <hr>
+    <!-- this was the complete hero section -->
+    <div class="hero">
+        <button onclick="navigate('prev')" class="prev-btn">&larr;</button>
+        <button onclick="navigate('next')" class="next-btn">&rarr;</button>
+         <div class="herodata">
+                 <span style="font-size: 50px; text-indent: 20px;font-family: Arial, sans-serif;">Send and Recieve Money safely from the home!</span> <br><br><br><br>
+                 <span style="font-size: 20px; text-indent: 20px; font-family:Arial, Helvetica, sans-serif ;">Help your friends and family make safe payments with Fastpay</span>
+                 <div class="started">
+                      Get Started
+                 </div>
+         </div>
+    </div>
+    <div class="hero hero2" style="display: none;">
+        <button onclick="navigate('prev')" class="prev-btn">&larr;</button>
+        <button onclick="navigate('next')" class="next-btn">&rarr;</button>
+        <div class="herodata">
+                 <span style="font-size:25px; text-indent: 40px;font-family: Arial, sans-serif;text-decoration: line-through;color: #858586;">2%</span> <span style="color: #6739b7;font-size: 80px;">Free</span><br><br>
+                 <span style="font-size: 40px; text-indent: 20px; font-family:Arial, Helvetica, sans-serif ;">Accept Your Online payments from others at zero cost(0%) </span><br>
+                 <div class="started">
+                      Get Started
+                 </div>
+         </div>
+
+    </div>
+    <div class="hero hero3" style="display: none;">
+        <button onclick="navigate('prev')" class="prev-btn">&larr;</button>
+        <button onclick="navigate('next')" class="next-btn">&rarr;</button>
+         <div class="herodata">
+                 <span style="font-size: 50px; text-indent: 20px;font-family: Arial, sans-serif; color: white;">View Statements & manage financial constents</span> <br><br><br><br>
+                 <span style="font-size: 25px; text-indent: 20px; font-family:Arial, Helvetica, sans-serif ;">Get register with Fastpay <br>Righnow...</span><br>
+                 <div class="started">
+                      Know More...
+                 </div>
+         </div>
+
+    </div>
+
+
+
+
+    <script>
+        let currentIndex = 0;
+        const divs = document.querySelectorAll('.hero');
+
+        function navigate(direction) {
+            divs[currentIndex].style.display = 'none';
+            if (direction === 'next') {
+                currentIndex = (currentIndex + 1) % divs.length;
+            } else if (direction === 'prev') {
+                currentIndex = (currentIndex - 1 + divs.length) % divs.length;
+            }
+            divs[currentIndex].style.display = 'block';
+        }
+    </script>
 </body>
 </html>

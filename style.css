@@ -42,7 +42,7 @@
     font-size: 20px;
     text-align: center;
     font-family: cursive, 'Lucida Handwriting', 'Brush Script MT', 'Segoe Script', cursive;
-    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    transition: background-color 0.3s, color 0.3s, transform 0.5s;
     line-height: 50px; /* Centering text vertically */
     border-radius:17%;
 }
@@ -51,5 +51,57 @@
 .navbardet:hover {
     background-color: rgb(86, 27, 169); /* Change background color on hover */
     color: white; /* Change text color on hover */
-    transform: scale(0.80); /* Slight zoom-out effect on hover */
+    transform: scale(1.20); /* Slight zoom-out effect on hover */
+}
+.hero{
+    background-image: url("heropic.png");
+    background-size: cover;
+    width: 100%;
+    margin-top: 10px;
+    height: 400px;
+    position: relative;
+    
+}
+.herodata{
+    position:absolute;
+    width: 30%;
+    height: 90%;
+    margin-left: 150px;
+    margin-top: 20px;
+    color: rgb(97,33,157);
+    
+
+}
+.started{
+    width: 168.33px;
+    height: 45.4px;
+    border-radius: 33px;
+    background-color: #6739b7;
+    margin-top: 15px;
+    color: white;
+    font-size: 25px;
+    line-height: 45.4px;
+    text-align: center;
+}
+.hero2{
+    background-image: url("hero2.jpg");
+}
+.hero3{
+    background-image: url(hero3.png);
+}
+.prev-btn{
+    float: left;width: 35px; height: 55px; border-radius: 50%; font-size:25px;margin-top: 150px;background: transparent;margin-left: 10px;border: 2px black solid;
+    transition: transform 0.3s ease-in-out;
+}
+.next-btn{
+    float: right; width: 35px; height: 55px; border-radius: 50%;font-size: 25px;margin-top: 150px;background: transparent;margin-right: 10px;border: 2px black solid;
+    transition: transform 0.6s ease-in-out,box-shadow 0.3s ease-in-out;
+}
+.prev-btn:hover,
+.next-btn:hover{
+     background-color: rgb(85, 83, 90);
+     color: white;
+     transform: scale(1.2);
+     box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.5);
+
 }
