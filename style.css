@@ -12,16 +12,17 @@
     background-color: black;
     background-image: url("Navbarlogo.png");
     background-size: cover;
-    margin-left: 15px;
+    margin-left: 45px;
 }
 .comname{
     width: 100px;
     height: 80px;
-    color: black
+    color: black;
     margin-left: 5px;
     display: flex;
     align-items: center;
-    font-size: 55px;
+    font-size: 3.0rem;
+    font-weight: 600;
     font-family: 'Bodoni Moda', serif;
 }
 .info{
@@ -103,5 +104,51 @@
      color: white;
      transform: scale(1.2);
      box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.5);
+
+}
+.middle{
+    margin-top: 20px;
+    width: 100%;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.middiv{
+    width: 560px;
+    height: 301px;
+    background-color:white;
+    border: 0.5px solid black;
+    transition: all 0.2sec ease-in-out;
+    border-radius: 10px;
+    font-family: PhonePeSans,sans-serif,Helvetica,Arial;
+    color: #361968;
+    
+
+}
+.middiv1{
+    background-image: url(secpart1.svg);
+    background-position: right;
+    background-repeat: no-repeat;
+    padding-left: 25px;
+}
+.middiv2{
+    background-image: url(secpart2.svg);
+    background-position: right;
+    background-repeat: no-repeat;
+    padding-left: 25px;
+}
+.middiv:hover{
+    border: 0px ;
+    box-shadow:0 19px 25px 0 rgb(0,0,0,.19)
+}
+.infodata{
+    width: 100%;
+    height: 400px;
+    margin-top: 20px;
+    background-image: url(infopic.png);
+    background-size: cover;
+    padding-left: 40px;
 
 }
