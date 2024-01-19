@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Inside dashboard.html -->
+    <style>
+        body { margin: 0;
+              padding: 0;
+              background-image: url('https://cdn.iconscout.com/icon/premium/png-512-thumb/deposit-32-1106007.png');
+              background-size: cover;
+              background-position: center;
+              background-repeat: no-repeat;
+              position: relative;
+        }
+        body::before {
+                   content: "";
+                   position: absolute;
+                   top: 0;
+                   left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background:linear-gradient(#fff,#9c8fe4);;
+                  z-index: 1;
+        }
+        .send-button {
+             width: 200px;
+             height: 50px;
+             border-radius: 33px;
+             background-color: aliceblue;
+              margin-left: 80px;
+              text-align: center;
+             font-size: 25px;
+             font-weight: 500;
+    /* Additional styles or overrides as needed */
+        }
+        .profile-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-top: 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .background-image {
+            width: 100%;
+            height: 100%;
+            background-image: url(https://th.bing.com/th/id/OIP.R87PbOkdc695AAZ-_qrLYwHaHk?rs=1&pid=ImgDetMain);
+            background-size: cover;
+            background-color: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* CSS for logout options */
+        .logout-options {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 5px;
+            border-radius: 10px;
+            margin-top: 70px;
+            margin-left: 1370px;
+            z-index: 1;
+        }
+         
+    </style>
+
+</head>
+<body>
+    <div style="position: relative;z-index: 2;">
+    <div style="width: 100%;height: 80px;background-color:transparent;display: flex;">
+        <div style="margin-left: 25px;width: 75px;height: 75px;background-color: transparent;border-radius: 50%;background-image: url('{{ url_for('static', filename='images/Navbarlogo.png') }}');background-size: cover;margin-top: 2.5px;">
+        </div>
+        <div style="width: auto;height: 60px;color: black;margin-top:10px;margin-left: 10px;font-size:50px;font-family: 'Bodoni Moda', serif;font-size: 3.0rem;font-weight: 600;">
+               Fastpay
+        </div>
+        <div style="width: auto;height: 40px;font-size: 25px;margin-left: 900px;margin-top: 25px;">
+            Hello, {{ name }}
+        </div>
+        <div class="profile-image">
+            <div class="background-image"></div>
+        </div>
+    
+        <!-- Logout options - initially hidden -->
+        <div class="logout-options">
+            <p>Logout</p>
+        </div>
+
+    <!-- Logout options - initially hidden -->
+    <div id="logoutOptions" class="logout-options">
+        <p onclick="logout()">Logout</p>
+    </div>
+    </div>
+    <div style="width: 100%;height: 400px;background-color: transparent;margin-top: 20px;display: flex;justify-content: space-around;">
+       <div style="width: 25%;height: 350px;background-image: linear-gradient(to left,#247ba0,#eeeee7);margin-top: 15px;border: 2px rgb(12, 12, 12) solid;border-radius: 20px;">
+        <img src="https://www.freeiconspng.com/uploads/dollar-exchange-money-transfer-icon-21.png" width="100%" height="180px" style="color:transparent">
+        <p style="color: rgb(9, 9, 9);padding-left: 15px;font-size: 25px;">Send Money to Your Friends,Family and relatives</p> 
+        <a href="{{ url_for('send_money_page') }}" style="display: inline-block; width: 200px; height: 50px; border-radius: 33px; background-color: aliceblue; margin-left: 80px; text-align: center; font-size: 25px; font-weight: 500; line-height: 50px; text-decoration: none; color: black;border: 2px solid black;">Send Now</a>
+ 
+       </div>
+
+
+       <div style="width: 25%;height: 350px;background-image: linear-gradient(to left,#247ba0,#eeeee7);margin-top: 15px;border: 2px rgb(9, 9, 9) solid;border-radius: 20px;">
+        <img src="https://cdn3.iconfinder.com/data/icons/leto-finance-money-1/64/bank_deposit_banking_safe_money-512.png" width="100%" height="180px" style="color: aliceblue;">
+        <p style="color: rgb(13, 13, 14);padding-left: 15px;font-size: 25px;">Deposit Amount Into Your Account Safely With Fastpay...</p> 
+        <a href="{{ url_for('deposit_money_page') }}" style="display: inline-block; width: 200px; height: 50px; border-radius: 33px; background-color: aliceblue; margin-left: 80px; text-align: center; font-size: 25px; font-weight: 500; line-height: 50px; text-decoration: none; color: black;border: 2px solid black;">Deposit Now</a>  
+       </div>
+        
+
+       <div style="width: 25%;height: 350px;background-image: linear-gradient(to left,#247ba0,#eeeee7);margin-top: 15px;border: 2px rgb(22, 21, 21) solid;border-radius: 20px;">
+        <img src="https://cdn4.iconfinder.com/data/icons/retail-12/64/withdraw-cash-payment-electronics-512.png" width="100%" height="180px" style="color: aliceblue;">
+        <p style="color: rgb(15, 15, 15);padding-left: 15px;font-size: 25px;">Withdraw Your Money with Most Convinence and Ease...</p> 
+        <a href="{{ url_for('withdraw_money_page') }}" style="display: inline-block; width: 200px; height: 50px; border-radius: 33px; background-color: aliceblue; margin-left: 80px; text-align: center; font-size: 25px; font-weight: 500; line-height: 50px; text-decoration: none; color: black;border: 2px solid black;">Withdraw Now</a>  
+       </div>
+
+    </div>
+    <div style="width: 100%;height: 400px;background-color: transparent;margin-top: 20px;display: flex;justify-content: space-around;">
+        <div style="width: 25%;height: 350px;background-image: linear-gradient(to left,#247ba0,#eeeee7);margin-top: 15px;border: 2px rgb(21, 21, 21) solid;border-radius: 20px;">
+            <img src="https://pluspng.com/img-png/bank-balance-png-account-balance-bank-cash-dollar-money-payment-icon-512.png" width="100%" height="180px" style="color: aliceblue;">
+            <p style="color: rgb(9, 9, 9);padding-left: 15px;font-size: 25px;">Check Your Bank Balance at the comfort of the Home...</p> 
+            <a href="{{ url_for('checkbalance') }}" style="display: inline-block; width: 200px; height: 50px; border-radius: 33px; background-color: aliceblue; margin-left: 80px; text-align: center; font-size: 25px; font-weight: 500; line-height: 50px; text-decoration: none; color: black;border: 2px solid black;">Check Balance</a>  
+        </div>
+
+        <div style="width: 25%;height: 350px;background-image: linear-gradient(to left,#247ba0,#eeeee7);margin-top: 15px;border: 2px rgb(10, 10, 10) solid;border border-radius: 20px;">
+            <img src="https://cdn-icons-png.flaticon.com/512/8118/8118471.png" width="100%" height="180px" style="color: aliceblue;">
+            <p style="color: rgb(5, 5, 5);padding-left: 15px;font-size: 25px;">Manage Financial Transcitions by tracing the Transcition History </p> 
+            <a href="{{ url_for('transcition') }}" style="display: inline-block; width: 200px; height: 50px; border-radius: 33px; background-color: aliceblue; margin-left: 80px; text-align: center; font-size: 25px; font-weight: 500; line-height: 50px; text-decoration: none; color: black;border: 2px solid black;">Transcition History</a>  
+        </div>
+
+        <div style="width: 25%;height: 350px;background-image: linear-gradient(to left,#247ba0,#eeeee7);margin-top: 15px;border: 2px rgb(13, 13, 13) solid;border-radius: 20px;">
+            <img src="https://cdn-icons-png.flaticon.com/512/1190/1190449.png" width="100%" height="180px" style="color: aliceblue;">
+            <p style="color: rgb(10, 10, 10);padding-left: 15px;font-size: 25px;">Help Us to Grow More and Develop....</p> 
+            <button style="width: 200px;height: 50px;border-radius: 33px;background-color: aliceblue;margin-left: 80px;text-align: center;font-size: 25px;font-weight: 500;">Leave Review</button>  
+           </div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var profileImage = document.querySelector('.profile-image');
+        var logoutOptions = document.querySelector('.logout-options');
+
+        profileImage.addEventListener('click', function() {
+            logoutOptions.style.display = (logoutOptions.style.display === 'block') ? 'none' : 'block';
+        });
+
+        logoutOptions.addEventListener('click', function() {
+            window.location.href ="{{ url_for('home') }}" // Replace '/homepage' with your actual URL
+        });
+    });
+</script>
+</body>
+</html>

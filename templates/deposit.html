@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body { margin: 0;
+              padding: 0;
+              background-repeat: no-repeat;
+              position: relative;
+              z-index:0 ;
+        }
+        body::before {
+                   content: "";
+                   position: absolute;
+                   top: 0;
+                   left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background:linear-gradient(#fff,#9c8fe4);;
+                  z-index: 1;
+        }
+        .flash-message {
+           margin-bottom: 20px;
+           margin-top: 15px;
+           margin-left: 85px;
+            padding: 10px;
+            border-radius: 5px;
+            width: 250px;
+            height: 30px;
+            text-align: center;
+            font-size: 1.2rem;
+}
+
+.success {
+    background-color: #5cb85c;
+    color: #fff;
+}
+
+.error {
+    background-color: #d9534f;
+    color: #fff;
+}
+    </style>
+</head>
+<body>
+    <div style="position: relative;z-index: 2;">
+        <div style="width: 100%;height: 80px;background-color:transparent;display: flex;">
+            <div style="margin-left: 25px;width: 75px;height: 75px;background-color: transparent;border-radius: 50%;background-image: url('{{ url_for('static', filename='images/Navbarlogo.png') }}');background-size: cover;margin-top: 2.5px;">
+            </div>
+            <div style="width: auto;height: 60px;color: black;margin-top:10px;margin-left: 10px;font-size:50px;font-family: 'Bodoni Moda', serif;font-size: 3.0rem;font-weight: 600;">
+                   Fastpay
+            </div>
+            <!-- <div style="width: auto;height: 40px;font-size: 25px;margin-left: 900px;margin-top: 25px;">
+                Hello,pavan kumar pilaka
+            </div> -->
+            <!-- <div style="width: 40px;height: 40px;border-radius: 50%;background-image: url(https://th.bing.com/th/id/OIP.R87PbOkdc695AAZ-_qrLYwHaHk?rs=1&pid=ImgDetMain);margin-top: 20px;margin-left: 10px;background-size: cover;background-color: transparent;">
+    
+            </div> -->
+        </div>
+        <div style="width: 100%;height: 650px;display:flex;justify-content: center;">
+                <form style="width: 30%;height: 620px;border: 2px solid black;border-radius: 5px;" action="/deposit-money" method="POST">
+                    <p style="color: black;font-size: 2.5rem;font-weight: 700;padding-left: 25%;">Deposit Money</p>
+                    <p style="margin-left: 70px;font-size: 1.1rem;font-weight: 400;">Enter your Phone number</p>
+                    <input type="tel" name="deposit" id="deposit" style="margin-left: 70px;width: 300px;height:50px ;"/>
+                    <p style="margin-left: 70px;font-size: 1.1rem;font-weight: 400;">Enter your Password</p>
+                    <input type="password" name="depopass" id="depopass" style="margin-left: 70px;width: 300px;height:50px ;"/>
+                    <p style="margin-left: 70px;font-size: 1.1rem;font-weight: 400;">Enter the Amount:</p>
+                    <input type="number" name="amount" id="amount" style="margin-left: 70px;width: 300px;height:50px ;"/><br>
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                              {% if messages %}
+                        {% for category, message in messages %}
+                                  <div class="flash-message {{ category }}">
+                                   {{ message }}
+                                    </div>
+                     {% endfor %}
+                     {% endif %}
+                     {% endwith %}
+                    <button style="margin-left: 140px;width: 150px;height: 50px;border-radius: 10px;background-color: green;font-size: 1.2rem;font-weight: 600;margin-top: 30px;" type="submit">Deposit</button>
+                </form>
+        </div>
+   </div>
+</body>
+</html>

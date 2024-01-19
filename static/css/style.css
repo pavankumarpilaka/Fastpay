@@ -1,7 +1,7 @@
 .navbar{
     width: 100%;
     height: 80px;
-    background-color: white;
+    background-color: transparent;
     display: flex;
 
 }
@@ -13,6 +13,11 @@
     background-image: url("Navbarlogo.png");
     background-size: cover;
     margin-left: 45px;
+}
+.firstcs{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#9c8fe4,#fff);
 }
 .comname{
     width: 100px;
@@ -53,8 +58,12 @@
     color:#6739b7; /* Change text color on hover */
     transform: scale(1.20); /* Slight zoom-out effect on hover */
 }
+.logins{
+    text-decoration: none;
+    color: #361968;
+}
 .hero{
-    background-image: url("heropic.png");
+    background-image: url("hero3.png");
     background-size: cover;
     width: 100%;
     margin-top: 10px;
@@ -123,8 +132,6 @@
     border-radius: 10px;
     font-family: PhonePeSans,sans-serif,Helvetica,Arial;
     color: #361968;
-    
-
 }
 .middiv1{
     background-image: url(secpart1.svg);
@@ -160,4 +167,20 @@
     font-size: 1.1rem;
     font-weight: 400;
     background:linear-gradient(#fff,#9c8fe4);
+}
+.maininto{
+    background: linear-gradient(#fff,#9c8fe4);
+    height:800px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: -250px;
+}
+.options{
+    width: 350px;
+    height: 200px;
+    border: 1px solid balck;
+    background-color: #361968;
+    margin-left: 5px;
 }
